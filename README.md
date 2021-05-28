@@ -1,0 +1,2 @@
+# oop-snake
+Seminarski rad
