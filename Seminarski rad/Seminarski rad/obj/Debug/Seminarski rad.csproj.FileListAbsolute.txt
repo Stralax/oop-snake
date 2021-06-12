@@ -13,3 +13,18 @@ C:\Users\novak\Desktop\snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski 
 C:\Users\novak\Desktop\snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski rad.csproj.CoreCompileInputs.cache
 C:\Users\novak\Desktop\snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski rad.exe
 C:\Users\novak\Desktop\snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski rad.pdb
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\bin\Debug\Seminarski rad.exe.config
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\bin\Debug\Seminarski rad.exe
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\bin\Debug\Seminarski rad.pdb
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski rad.csprojAssemblyReference.cache
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\MainWindow.g.cs
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\App.g.cs
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski rad_MarkupCompile.cache
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski rad_MarkupCompile.lref
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\MainWindow.baml
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski rad.g.resources
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski_rad.Properties.Resources.resources
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski rad.csproj.GenerateResource.cache
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski rad.csproj.CoreCompileInputs.cache
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski rad.exe
+C:\Users\novak\Source\Repos\Stralax\oop-snake\Seminarski rad\Seminarski rad\obj\Debug\Seminarski rad.pdb

@@ -21,16 +21,21 @@ namespace Seminarski_rad
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	/// 
+
 	public partial class MainWindow : Window
 	{
 		private static Timer tajmer;
 		public static List<Label> ListaPolja = new List<Label>();
 		public static Label[,] Polja = new Label[15, 15];
+		public static int[,] pomocnaMatrica = new int[15, 15];
+
 		static Engine engine = new Engine();
+		public static int stanjeZmije;
+
 		public MainWindow()
 		{
-
 			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(IKeyDown);
 			foreach (var v in Grid1.Children)
 				if (ListaPolja.Count < 225)
 					if (v is Label)
@@ -40,17 +45,29 @@ namespace Seminarski_rad
 					else { }
 				else
 					break;
-
 			int brojac = 0;
 			for (int i = 0; i < 15; i++)
 			{
 
 				for (int j = 0; j < 15; j++)
 				{
+					pomocnaMatrica[i, j] = 1000;
 					Polja[i, j] = ListaPolja[brojac];
 					brojac++;
 				}
 			}
+		}
+
+		private void IKeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.Key == Key.W)
+				stanjeZmije = 1;
+			if (e.Key == Key.A)
+				stanjeZmije = 2;
+			if (e.Key == Key.S)
+				stanjeZmije = 3;
+			if (e.Key == Key.D)
+				stanjeZmije = 4;
 		}
 
 		static int interval;
@@ -66,10 +83,12 @@ namespace Seminarski_rad
 		}
 		private void OnTimerElapsed(object sender, ElapsedEventArgs e)
 		{
+
 			this.Dispatcher.Invoke(() =>
 			{
-				Polje000.Content = DateTime.Now;
+				engine.pomeriZmiju();
 			});
+
 			/*if (tajmer != null)
             {
                 tajmer.Stop();
@@ -82,6 +101,7 @@ namespace Seminarski_rad
 			nivo3Button.Background = Brushes.White;
 			nivo1Button.Background = Brushes.Red;
 			interval = 1000;
+
 		}
 
 		private void Nivo2Button_Click(object sender, RoutedEventArgs e)
