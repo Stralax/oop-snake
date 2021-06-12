@@ -21,7 +21,7 @@ namespace Seminarski_rad
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	/// 
-
+	//test komentar
 	public partial class MainWindow : Window
 	{
 		private static Timer tajmer;
