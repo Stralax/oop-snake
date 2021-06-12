@@ -28,14 +28,17 @@ namespace Seminarski_rad
 		public static List<Label> ListaPolja = new List<Label>();
 		public static Label[,] Polja = new Label[15, 15];
 		public static int[,] pomocnaMatrica = new int[15, 15];
-
 		static Engine engine = new Engine();
 		public static int stanjeZmije;
+		public static bool daLiJede = false;
+		static (int, int) sledecePolje = (0, 0);
+
 
 		public MainWindow()
 		{
 			InitializeComponent();
 			this.KeyDown += new KeyEventHandler(IKeyDown);
+
 			foreach (var v in Grid1.Children)
 				if (ListaPolja.Count < 225)
 					if (v is Label)
@@ -56,18 +59,21 @@ namespace Seminarski_rad
 					brojac++;
 				}
 			}
+			Polja[10, 10].Background = Brushes.Yellow;
+			Polja[14, 14].Background = Brushes.Yellow;
 		}
 
 		private void IKeyDown(object sender, KeyEventArgs e)
 		{
-			if (e.Key == Key.W)
+			if ((e.Key == Key.W) || (e.Key == Key.Up))
 				stanjeZmije = 1;
-			if (e.Key == Key.A)
+			if ((e.Key == Key.A) || (e.Key == Key.Left))
 				stanjeZmije = 2;
-			if (e.Key == Key.S)
+			if ((e.Key == Key.S) || (e.Key == Key.Down))
 				stanjeZmije = 3;
-			if (e.Key == Key.D)
+			if ((e.Key == Key.D) || (e.Key == Key.Right))
 				stanjeZmije = 4;
+
 		}
 
 		static int interval;
@@ -83,17 +89,29 @@ namespace Seminarski_rad
 		}
 		private void OnTimerElapsed(object sender, ElapsedEventArgs e)
 		{
-
 			this.Dispatcher.Invoke(() =>
 			{
+				odrediSledecePolje();
+				daLiZmijaJede();
 				engine.pomeriZmiju();
 			});
+			/*this.Dispatcher.Invoke(() =>
+			{
+				if (daLiJede)
+				{
+					this.Dispatcher.Invoke(() =>
+					{
+						engine.povecajZmiju();
+					});
+				}
+			});
+			}
 
-			/*if (tajmer != null)
-            {
-                tajmer.Stop();
-                tajmer.Dispose();
-            }*/
+				/*if (tajmer != null)
+				{
+					tajmer.Stop();
+					tajmer.Dispose();
+				}*/
 		}
 		private void Nivo1Button_Click(object sender, RoutedEventArgs e)
 		{
@@ -151,6 +169,38 @@ namespace Seminarski_rad
 			{
 				l.FontSize = 30;
 			}
+		}
+		private void odrediSledecePolje()
+		{
+			if (stanjeZmije == 1)
+			{
+				sledecePolje.Item1 = Engine.xZmije - 1;
+				sledecePolje.Item2 = Engine.yZmije;
+			}
+			if (stanjeZmije == 2)
+			{
+				sledecePolje.Item1 = Engine.xZmije;
+				sledecePolje.Item2 = Engine.yZmije - 1;
+			}
+			if (stanjeZmije == 3)
+			{
+				sledecePolje.Item1 = Engine.xZmije + 1;
+				sledecePolje.Item2 = Engine.yZmije;
+			}
+			if (stanjeZmije == 4)
+			{
+				sledecePolje.Item1 = Engine.xZmije;
+				sledecePolje.Item2 = Engine.yZmije + 1;
+			}
+		}
+		public static void daLiZmijaJede()
+		{
+			if (Polja[sledecePolje.Item1, sledecePolje.Item2].Background == Brushes.Yellow)
+			{
+				daLiJede = true;
+			}
+			else
+				daLiJede = false;
 		}
 	}
 }
