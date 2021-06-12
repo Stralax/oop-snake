@@ -1,0 +1,255 @@
+﻿<Window x:Class="Seminarski_rad.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Seminarski_rad"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800">
+    <Grid x:Name="Grid1" Background="LightGreen">
+        <Label x:Name="Polje000" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" />
+        <Label x:Name="Polje001" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,0,0,0"/>
+        <Label x:Name="Polje002" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,0,0,0"/>
+        <Label x:Name="Polje003" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,0,0,0"/>
+        <Label x:Name="Polje004" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,0,0,0"/>
+        <Label x:Name="Polje005" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,0,0,0"/>
+        <Label x:Name="Polje006" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,0,0,0"/>
+        <Label x:Name="Polje007" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,0,0,0"/>
+        <Label x:Name="Polje008" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,0,0,0"/>
+        <Label x:Name="Polje009" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,0,0,0"/>
+        <Label x:Name="Polje0010" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,0,0,0"/>
+        <Label x:Name="Polje0011" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,0,0,0"/>
+        <Label x:Name="Polje0012" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,0,0,0"/>
+        <Label x:Name="Polje0013" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,0,0,0"/>
+        <Label x:Name="Polje0014" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,0,0,0"/>
+        <Label x:Name="Polje010" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,45,0,0"/>
+        <Label x:Name="Polje011" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,45,0,0"/>
+        <Label x:Name="Polje012" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,45,0,0"/>
+        <Label x:Name="Polje013" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,45,0,0"/>
+        <Label x:Name="Polje014" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,45,0,0"/>
+        <Label x:Name="Polje015" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,45,0,0"/>
+        <Label x:Name="Polje016" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,45,0,0"/>
+        <Label x:Name="Polje017" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,45,0,0"/>
+        <Label x:Name="Polje018" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,45,0,0"/>
+        <Label x:Name="Polje019" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,45,0,0"/>
+        <Label x:Name="Polje0110" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,45,0,0"/>
+        <Label x:Name="Polje0111" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,45,0,0"/>
+        <Label x:Name="Polje0112" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,45,0,0"/>
+        <Label x:Name="Polje0113" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,45,0,0"/>
+        <Label x:Name="Polje0114" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,45,0,0"/>
+
+        <Label x:Name="Polje020" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,90,0,0"/>
+        <Label x:Name="Polje021" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,90,0,0"/>
+        <Label x:Name="Polje022" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,90,0,0"/>
+        <Label x:Name="Polje023" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,90,0,0"/>
+        <Label x:Name="Polje024" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,90,0,0"/>
+        <Label x:Name="Polje025" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,90,0,0"/>
+        <Label x:Name="Polje026" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,90,0,0"/>
+        <Label x:Name="Polje027" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,90,0,0"/>
+        <Label x:Name="Polje028" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,90,0,0"/>
+        <Label x:Name="Polje029" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,90,0,0"/>
+        <Label x:Name="Polje0210" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,90,0,0"/>
+        <Label x:Name="Polje0211" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,90,0,0"/>
+        <Label x:Name="Polje0212" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,90,0,0"/>
+        <Label x:Name="Polje0213" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,90,0,0"/>
+        <Label x:Name="Polje0214" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,90,0,0"/>
+
+        <Label x:Name="Polje030" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,135,0,0"/>
+        <Label x:Name="Polje031" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,135,0,0"/>
+        <Label x:Name="Polje032" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,135,0,0"/>
+        <Label x:Name="Polje033" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,135,0,0"/>
+        <Label x:Name="Polje034" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,135,0,0"/>
+        <Label x:Name="Polje035" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,135,0,0"/>
+        <Label x:Name="Polje036" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,135,0,0"/>
+        <Label x:Name="Polje037" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,135,0,0"/>
+        <Label x:Name="Polje038" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,135,0,0"/>
+        <Label x:Name="Polje039" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,135,0,0"/>
+        <Label x:Name="Polje0310" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,135,0,0"/>
+        <Label x:Name="Polje0311" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,135,0,0"/>
+        <Label x:Name="Polje0312" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,135,0,0"/>
+        <Label x:Name="Polje0313" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,135,0,0"/>
+        <Label x:Name="Polje0314" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,135,0,0"/>
+        <Label x:Name="Polje040" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,180,0,0"/>
+        <Label x:Name="Polje041" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,180,0,0"/>
+        <Label x:Name="Polje042" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,180,0,0"/>
+        <Label x:Name="Polje043" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,180,0,0"/>
+        <Label x:Name="Polje044" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,180,0,0"/>
+        <Label x:Name="Polje045" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,180,0,0"/>
+        <Label x:Name="Polje046" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,180,0,0"/>
+        <Label x:Name="Polje047" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,180,0,0"/>
+        <Label x:Name="Polje048" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,180,0,0"/>
+        <Label x:Name="Polje049" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,180,0,0"/>
+        <Label x:Name="Polje0410" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,180,0,0"/>
+        <Label x:Name="Polje0411" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,180,0,0"/>
+        <Label x:Name="Polje0412" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,180,0,0"/>
+        <Label x:Name="Polje0413" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,180,0,0"/>
+        <Label x:Name="Polje0414" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,180,0,0"/>
+        <Label x:Name="Polje050" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,225,0,0"/>
+        <Label x:Name="Polje051" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,225,0,0"/>
+        <Label x:Name="Polje052" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,225,0,0"/>
+        <Label x:Name="Polje053" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,225,0,0"/>
+        <Label x:Name="Polje054" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,225,0,0"/>
+        <Label x:Name="Polje055" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,225,0,0"/>
+        <Label x:Name="Polje056" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,225,0,0"/>
+        <Label x:Name="Polje057" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,225,0,0"/>
+        <Label x:Name="Polje058" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,225,0,0"/>
+        <Label x:Name="Polje059" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,225,0,0"/>
+        <Label x:Name="Polje0510" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,225,0,0"/>
+        <Label x:Name="Polje0511" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,225,0,0"/>
+        <Label x:Name="Polje0512" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,225,0,0"/>
+        <Label x:Name="Polje0513" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,225,0,0"/>
+        <Label x:Name="Polje0514" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,225,0,0"/>
+
+        <Label x:Name="Polje060" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,270,0,0"/>
+        <Label x:Name="Polje061" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,270,0,0"/>
+        <Label x:Name="Polje062" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,270,0,0"/>
+        <Label x:Name="Polje063" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,270,0,0"/>
+        <Label x:Name="Polje064" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,270,0,0"/>
+        <Label x:Name="Polje065" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,270,0,0"/>
+        <Label x:Name="Polje066" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,270,0,0"/>
+        <Label x:Name="Polje067" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,270,0,0"/>
+        <Label x:Name="Polje068" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,270,0,0"/>
+        <Label x:Name="Polje069" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,270,0,0"/>
+        <Label x:Name="Polje0610" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,270,0,0"/>
+        <Label x:Name="Polje0611" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,270,0,0"/>
+        <Label x:Name="Polje0612" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,270,0,0"/>
+        <Label x:Name="Polje0613" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,270,0,0"/>
+        <Label x:Name="Polje0614" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,270,0,0"/>
+
+        <Label x:Name="Polje070" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,315,0,0"/>
+        <Label x:Name="Polje071" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,315,0,0"/>
+        <Label x:Name="Polje072" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,315,0,0"/>
+        <Label x:Name="Polje073" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,315,0,0"/>
+        <Label x:Name="Polje074" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,315,0,0"/>
+        <Label x:Name="Polje075" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,315,0,0"/>
+        <Label x:Name="Polje076" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,315,0,0"/>
+        <Label x:Name="Polje077" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,315,0,0"/>
+        <Label x:Name="Polje078" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,315,0,0"/>
+        <Label x:Name="Polje079" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,315,0,0"/>
+        <Label x:Name="Polje0710" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,315,0,0"/>
+        <Label x:Name="Polje0711" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,315,0,0"/>
+        <Label x:Name="Polje0712" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,315,0,0"/>
+        <Label x:Name="Polje0713" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,315,0,0"/>
+        <Label x:Name="Polje0714" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,315,0,0"/>
+
+        <Label x:Name="Polje080" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,360,0,0"/>
+        <Label x:Name="Polje081" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,360,0,0"/>
+        <Label x:Name="Polje082" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,360,0,0"/>
+        <Label x:Name="Polje083" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,360,0,0"/>
+        <Label x:Name="Polje084" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,360,0,0"/>
+        <Label x:Name="Polje085" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,360,0,0"/>
+        <Label x:Name="Polje086" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,360,0,0"/>
+        <Label x:Name="Polje087" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,360,0,0"/>
+        <Label x:Name="Polje088" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,360,0,0"/>
+        <Label x:Name="Polje089" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,360,0,0"/>
+        <Label x:Name="Polje0810" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,360,0,0"/>
+        <Label x:Name="Polje0811" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,360,0,0"/>
+        <Label x:Name="Polje0812" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,360,0,0"/>
+        <Label x:Name="Polje0813" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,360,0,0"/>
+        <Label x:Name="Polje0814" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,360,0,0"/>
+
+        <Label x:Name="Polje090" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,405,0,0"/>
+        <Label x:Name="Polje091" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,405,0,0"/>
+        <Label x:Name="Polje092" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,405,0,0"/>
+        <Label x:Name="Polje093" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,405,0,0"/>
+        <Label x:Name="Polje094" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,405,0,0"/>
+        <Label x:Name="Polje095" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,405,0,0"/>
+        <Label x:Name="Polje096" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,405,0,0"/>
+        <Label x:Name="Polje097" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,405,0,0"/>
+        <Label x:Name="Polje098" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,405,0,0"/>
+        <Label x:Name="Polje099" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,405,0,0"/>
+        <Label x:Name="Polje0910" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,405,0,0"/>
+        <Label x:Name="Polje0911" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,405,0,0"/>
+        <Label x:Name="Polje0912" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,405,0,0"/>
+        <Label x:Name="Polje0913" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,405,0,0"/>
+        <Label x:Name="Polje0914" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,405,0,0"/>
+
+        <Label x:Name="Polje100" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,450,0,0"/>
+        <Label x:Name="Polje101" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,450,0,0"/>
+        <Label x:Name="Polje102" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,450,0,0"/>
+        <Label x:Name="Polje103" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,450,0,0"/>
+        <Label x:Name="Polje104" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,450,0,0"/>
+        <Label x:Name="Polje105" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,450,0,0"/>
+        <Label x:Name="Polje106" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,450,0,0"/>
+        <Label x:Name="Polje107" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,450,0,0"/>
+        <Label x:Name="Polje108" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,450,0,0"/>
+        <Label x:Name="Polje109" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,450,0,0"/>
+        <Label x:Name="Polje1010" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,450,0,0"/>
+        <Label x:Name="Polje1011" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,450,0,0"/>
+        <Label x:Name="Polje1012" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,450,0,0"/>
+        <Label x:Name="Polje1013" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,450,0,0"/>
+        <Label x:Name="Polje1014" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,450,0,0"/>
+
+        <Label x:Name="Polje110" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,495,0,0"/>
+        <Label x:Name="Polje111" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,495,0,0"/>
+        <Label x:Name="Polje112" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,495,0,0"/>
+        <Label x:Name="Polje113" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,495,0,0"/>
+        <Label x:Name="Polje114" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,495,0,0"/>
+        <Label x:Name="Polje115" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,495,0,0"/>
+        <Label x:Name="Polje116" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,495,0,0"/>
+        <Label x:Name="Polje117" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,495,0,0"/>
+        <Label x:Name="Polje118" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,495,0,0"/>
+        <Label x:Name="Polje119" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,495,0,0"/>
+        <Label x:Name="Polje1110" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,495,0,0"/>
+        <Label x:Name="Polje1111" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,495,0,0"/>
+        <Label x:Name="Polje1112" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,495,0,0"/>
+        <Label x:Name="Polje1113" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,495,0,0"/>
+        <Label x:Name="Polje1114" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,495,0,0"/>
+
+        <Label x:Name="Polje120" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,540,0,0"/>
+        <Label x:Name="Polje121" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,540,0,0"/>
+        <Label x:Name="Polje122" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,540,0,0"/>
+        <Label x:Name="Polje123" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,540,0,0"/>
+        <Label x:Name="Polje124" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,540,0,0"/>
+        <Label x:Name="Polje125" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,540,0,0"/>
+        <Label x:Name="Polje126" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,540,0,0"/>
+        <Label x:Name="Polje127" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,540,0,0"/>
+        <Label x:Name="Polje128" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,540,0,0"/>
+        <Label x:Name="Polje129" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,540,0,0"/>
+        <Label x:Name="Polje1210" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,540,0,0"/>
+        <Label x:Name="Polje1211" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,540,0,0"/>
+        <Label x:Name="Polje1212" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,540,0,0"/>
+        <Label x:Name="Polje1213" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,540,0,0"/>
+        <Label x:Name="Polje1214" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,540,0,0"/>
+
+        <Label x:Name="Polje130" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,585,0,0"/>
+        <Label x:Name="Polje131" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,585,0,0"/>
+        <Label x:Name="Polje132" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,585,0,0"/>
+        <Label x:Name="Polje133" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,585,0,0"/>
+        <Label x:Name="Polje134" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,585,0,0"/>
+        <Label x:Name="Polje135" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,585,0,0"/>
+        <Label x:Name="Polje136" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,585,0,0"/>
+        <Label x:Name="Polje137" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,585,0,0"/>
+        <Label x:Name="Polje138" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,585,0,0"/>
+        <Label x:Name="Polje139" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,585,0,0"/>
+        <Label x:Name="Polje1310" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,585,0,0"/>
+        <Label x:Name="Polje1311" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,585,0,0"/>
+        <Label x:Name="Polje1312" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,585,0,0"/>
+        <Label x:Name="Polje1313" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,585,0,0"/>
+        <Label x:Name="Polje1314" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,585,0,0"/>
+
+        <Label x:Name="Polje140" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="0,630,0,0"/>
+        <Label x:Name="Polje141" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,630,0,0"/>
+        <Label x:Name="Polje142" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="90,630,0,0"/>
+        <Label x:Name="Polje143" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="135,630,0,0"/>
+        <Label x:Name="Polje144" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="180,630,0,0"/>
+        <Label x:Name="Polje145" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="225,630,0,0"/>
+        <Label x:Name="Polje146" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="270,630,0,0"/>
+        <Label x:Name="Polje147" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="315,630,0,0"/>
+        <Label x:Name="Polje148" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="360,630,0,0"/>
+        <Label x:Name="Polje149" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="405,630,0,0"/>
+        <Label x:Name="Polje1410" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="450,630,0,0"/>
+        <Label x:Name="Polje1411" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="495,630,0,0"/>
+        <Label x:Name="Polje1412" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,630,0,0"/>
+        <Label x:Name="Polje1413" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,630,0,0"/>
+        <Label x:Name="Polje1414" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,630,0,0"/>
+        <Button x:Name="nivo1Button" Content="Nivo 1" Width="120" Height="52" FontSize="30" Click="Nivo1Button_Click" Background="White" Margin="60,700,612,17"/>
+        <Button x:Name="nivo2Button" Content="Nivo 2" Width="120" Height="52" FontSize="30" Click="Nivo2Button_Click" Background="White" Margin="270,700,402,17"/>
+        <Button x:Name="nivo3Button" Content="Nivo 3" Width="120" Height="52" FontSize="30" Click="Nivo3Button_Click" Background="White" Margin="465,700,207,17"/>
+        <Button x:Name="startButton" Content="START" Width="168" Height="81" FontSize="45" Click="StartButton_Click" Margin="614,680,10,8"/>
+        <Button x:Name="lightThemeButton" Content="Light Theme" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="691,405,0,0" Height="60" Click="lightThemeButton_Click"/>
+        <Button x:Name="darkThemeButton" Content="Dark Theme" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="691,106,0,0" Height="60" Click="darkThemeButton_Click"/>
+
+    </Grid>
+</Window>
+
