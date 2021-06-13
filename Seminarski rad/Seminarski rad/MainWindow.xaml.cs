@@ -32,13 +32,18 @@ namespace Seminarski_rad
 		public static int stanjeZmije;
 		public static bool daLiJede = false;
 		static (int, int) sledecePolje = (0, 0);
+		public bool raditajmer=false;
+		public int brojcanik=1;
+		public static List<Button> nivoButtoni = new List<Button>();
 
 
 		public MainWindow()
 		{
 			InitializeComponent();
 			this.KeyDown += new KeyEventHandler(IKeyDown);
-
+			nivoButtoni.Add(nivo1Button);
+			nivoButtoni.Add(nivo2Button);
+			nivoButtoni.Add(nivo3Button);
 			foreach (var v in Grid1.Children)
 				if (ListaPolja.Count < 225)
 					if (v is Label)
@@ -60,7 +65,7 @@ namespace Seminarski_rad
 				}
 			}
 			Polja[10, 10].Background = Brushes.Yellow;
-			Polja[14, 14].Background = Brushes.Yellow;
+			Polja[13, 13].Background = Brushes.Yellow;
 		}
 
 		private void IKeyDown(object sender, KeyEventArgs e)
@@ -86,6 +91,7 @@ namespace Seminarski_rad
 			tajmer.Elapsed += OnTimerElapsed;
 			tajmer.AutoReset = true;
 			tajmer.Enabled = true;
+			raditajmer = true;
 		}
 		private void OnTimerElapsed(object sender, ElapsedEventArgs e)
 		{
@@ -115,34 +121,50 @@ namespace Seminarski_rad
 		}
 		private void Nivo1Button_Click(object sender, RoutedEventArgs e)
 		{
-			nivo2Button.Background = Brushes.White;
-			nivo3Button.Background = Brushes.White;
-			nivo1Button.Background = Brushes.Red;
-			interval = 1000;
+			pokusajPromenitiNivo(nivo1Button);
 
 		}
 
 		private void Nivo2Button_Click(object sender, RoutedEventArgs e)
 		{
-			nivo1Button.Background = Brushes.White;
-			nivo3Button.Background = Brushes.White;
-			nivo2Button.Background = Brushes.Red;
-			interval = 500;
+			pokusajPromenitiNivo(nivo2Button);
 		}
 
 		private void Nivo3Button_Click(object sender, RoutedEventArgs e)
 		{
-			nivo1Button.Background = Brushes.White;
-			nivo2Button.Background = Brushes.White;
-			nivo3Button.Background = Brushes.Red;
-			interval = 300;
+			pokusajPromenitiNivo(nivo3Button);
 		}
 
 		private void StartButton_Click(object sender, RoutedEventArgs e)
 		{
 			postaviFont();
-			SetTimer(interval);
-			engine.PokreniEngine();
+			try
+            {
+                if (interval == 0)
+                {
+                    throw new LevelNotSelectedException();
+                }
+                SetTimer(interval);
+                if (brojcanik == 1)
+                {
+                    engine.PokreniEngine();
+                    brojcanik++;
+                }
+                if (tajmer.Enabled)
+                {
+                    startButton.Content = "START";
+                }
+            }
+            catch (LevelNotSelectedException)
+            {
+                MessageBox.Show("Nisi odabrao nivo!");
+            }
+            catch (ChangeLevelWhileIngameException)
+            {
+                MessageBox.Show("Ne moze se menjati nivo dok je igra u toku");
+            }
+            
+			
 		}
 
 		private void darkThemeButton_Click(object sender, RoutedEventArgs e)
@@ -202,5 +224,50 @@ namespace Seminarski_rad
 			else
 				daLiJede = false;
 		}
+
+		public void promeniBojuNivoButtona(Button b)
+		{
+			foreach (Button dugme in nivoButtoni)
+			{
+				if (dugme == b)
+					dugme.Background = Brushes.Red;
+				else
+					dugme.Background = Brushes.White;
+			}
+		}
+		public void pokusajPromenitiNivo(Button b)
+		{
+			try
+			{
+				if (raditajmer == true)
+				{
+					throw new ChangeLevelWhileIngameException();
+				}
+				promeniBojuNivoButtona(b);
+				interval = 1000;
+			}
+			catch (ChangeLevelWhileIngameException)
+			{
+				tajmer.Enabled = false;
+				startButton.Content = "RESUME";
+				MessageBox.Show("Ne moze se menjati nivo dok je igra u toku");
+			}
+		}
+		private void pauseButton_Click(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				if (raditajmer == false)
+				{
+					throw new PausedWhileNotIngameException();
+				}
+				tajmer.Enabled = false;
+				startButton.Content = "RESUME";
+			}
+			catch (PausedWhileNotIngameException)
+			{
+				MessageBox.Show("Ne mozes pauzirati igru dok je ne pokrenes!");
+			}
+		}	
 	}
 }

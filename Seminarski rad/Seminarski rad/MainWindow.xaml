@@ -249,7 +249,7 @@
         <Button x:Name="startButton" Content="START" Width="168" Height="81" FontSize="45" Click="StartButton_Click" Margin="614,680,10,8"/>
         <Button x:Name="lightThemeButton" Content="Light Theme" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="691,405,0,0" Height="60" Click="lightThemeButton_Click"/>
         <Button x:Name="darkThemeButton" Content="Dark Theme" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="691,106,0,0" Height="60" Click="darkThemeButton_Click"/>
-
+        <Button Content="Pause" Height="23" HorizontalAlignment="Left" Margin="691,630,0,0" x:Name="PauseButton" VerticalAlignment="Top" Width="75" Click="pauseButton_Click" />
     </Grid>
 </Window>
 
