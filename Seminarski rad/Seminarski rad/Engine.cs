@@ -13,6 +13,8 @@ namespace Seminarski_rad
 		public static int xZmije = 6;
 		public static int yZmije = 6;
 		static int brojac = 0;
+		static bool hrana = false;
+		Random rnd = new Random();
 		public Engine()
 		{
 
@@ -81,6 +83,7 @@ namespace Seminarski_rad
 				MainWindow.Polja[xpomocni, ypomocni].Background = Brushes.Blue;
 				DuzinaZmije++;
 				MainWindow.pomocnaMatrica[xpomocni, ypomocni] = min - 1;
+				hrana = false;
 			}
 			else //ukoliko zmija ne treba da poraste, brise se poslednje polje zmije
 			{
@@ -88,7 +91,6 @@ namespace Seminarski_rad
 				MainWindow.pomocnaMatrica[xpomocni, ypomocni] = 1000;
 			}
 		}
-
 
 		public void pomeriZmiju()
 		{
@@ -120,7 +122,19 @@ namespace Seminarski_rad
 				MainWindow.Polja[xZmije, yZmije - 1].Background = Brushes.Blue;
 				obrisiPolje();
 			}
-
+		}
+		public void spawnujHranu()
+		{
+			while (hrana == false)
+			{
+				int x = rnd.Next(15);
+				int y = rnd.Next(15);
+				if ((MainWindow.Polja[x, y].Background != Brushes.Blue) & (MainWindow.Polja[x, y].Background != Brushes.Red))
+				{
+					MainWindow.Polja[x, y].Background = Brushes.Yellow;
+					hrana = true;
+				}
+			}
 		}
 
 	}

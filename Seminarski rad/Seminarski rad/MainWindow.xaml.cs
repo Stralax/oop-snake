@@ -31,7 +31,6 @@ namespace Seminarski_rad
 		static Engine engine = new Engine();
 		public static int stanjeZmije;
 		public static bool daLiJede = false;
-		
 		public bool raditajmer=false;
 		public int brojcanik=1;
 		public static List<Button> nivoButtoni = new List<Button>();
@@ -64,8 +63,6 @@ namespace Seminarski_rad
 					brojac++;
 				}
 			}
-			Polja[10, 10].Background = Brushes.Yellow;
-			Polja[13, 13].Background = Brushes.Yellow;
 		}
 
 		private void IKeyDown(object sender, KeyEventArgs e)
@@ -83,8 +80,6 @@ namespace Seminarski_rad
 
 		static int interval;
 
-		//public int Interval { get; private set; }
-
 		void SetTimer(int interval)
 		{
 			tajmer = new Timer(interval);
@@ -98,9 +93,29 @@ namespace Seminarski_rad
 			this.Dispatcher.Invoke(() =>
 			{
 				odrediSledecePolje();
-				daLiZmijaJede();
-				engine.pomeriZmiju();
 			});
+			try
+			{
+				if ((sledecePolje.x >= 15) || (sledecePolje.y >= 15))
+				{
+					throw new IndexOutOfRangeException();
+				}
+				else
+				{
+					this.Dispatcher.Invoke(() =>
+					{
+						engine.spawnujHranu();
+						daLiZmijaJede();
+						engine.pomeriZmiju();
+					});
+				}
+			}
+			catch (IndexOutOfRangeException)
+			{
+				tajmer.Enabled = false;
+				MessageBox.Show("Izasao si van table");
+			}
+
 			/*this.Dispatcher.Invoke(() =>
 			{
 				if (daLiJede)
@@ -151,10 +166,12 @@ namespace Seminarski_rad
 					engine.PokreniEngine();
                     brojcanik++;
                 }
+				tajmer.Enabled = true;
                 if (tajmer.Enabled)
                 {
                     startButton.Content = "START";
-                }
+					tajmer.Enabled = true;
+				}
             }
             catch (LevelNotSelectedException)
             {
