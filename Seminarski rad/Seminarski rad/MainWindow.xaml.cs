@@ -121,18 +121,18 @@ namespace Seminarski_rad
 		}
 		private void Nivo1Button_Click(object sender, RoutedEventArgs e)
 		{
-			pokusajPromenitiNivo(nivo1Button);
+			pokusajPromenitiNivo(nivo1Button, 1000);
 
 		}
 
 		private void Nivo2Button_Click(object sender, RoutedEventArgs e)
 		{
-			pokusajPromenitiNivo(nivo2Button);
+			pokusajPromenitiNivo(nivo2Button, 500);
 		}
 
 		private void Nivo3Button_Click(object sender, RoutedEventArgs e)
 		{
-			pokusajPromenitiNivo(nivo3Button);
+			pokusajPromenitiNivo(nivo3Button, 300);
 		}
 
 		private void StartButton_Click(object sender, RoutedEventArgs e)
@@ -235,7 +235,7 @@ namespace Seminarski_rad
 					dugme.Background = Brushes.White;
 			}
 		}
-		public void pokusajPromenitiNivo(Button b)
+		public void pokusajPromenitiNivo(Button b, int vreme)
 		{
 			try
 			{
@@ -244,7 +244,7 @@ namespace Seminarski_rad
 					throw new ChangeLevelWhileIngameException();
 				}
 				promeniBojuNivoButtona(b);
-				interval = 1000;
+				interval = vreme;
 			}
 			catch (ChangeLevelWhileIngameException)
 			{
