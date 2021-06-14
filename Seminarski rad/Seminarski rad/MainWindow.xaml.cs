@@ -29,16 +29,14 @@ namespace Seminarski_rad
 		public static Label[,] Polja = new Label[15, 15];
 		public static int[,] pomocnaMatrica = new int[15, 15];
 		static Engine engine = new Engine();
-		public bool raditajmer=false;
-		public int brojcanik=1;
+		public static bool raditajmer=false;
+		public static int brojcanik=1;
 		public static List<Button> nivoButtoni = new List<Button>();
 
 
 		public MainWindow()
 		{
 			InitializeComponent();
-			sledecePolje.x = 6;
-			sledecePolje.y = 6;
 			this.KeyDown += new KeyEventHandler(IKeyDown);
 			nivoButtoni.Add(nivo1Button);
 			nivoButtoni.Add(nivo2Button);
@@ -78,7 +76,7 @@ namespace Seminarski_rad
 
 		}
 
-		static int interval;
+		public static int interval;
 
 		void SetTimer(int interval)
 		{
@@ -94,56 +92,6 @@ namespace Seminarski_rad
 			{
 				engine.UpdateGame();
 			});
-			/*if (walls)
-			{
-				try
-				{
-					if ((sledecePolje.x >= 15) || (sledecePolje.y >= 15) || (sledecePolje.x < 0) || (sledecePolje.y < 0))
-					{
-						throw new IndexOutOfRangeException();
-					}
-					else
-					{
-						this.Dispatcher.Invoke(() =>
-						{
-							engine.spawnujHranu();
-							engine.daLiZmijaJede();
-							engine.pomeriZmiju();
-						});
-					}
-				}
-				catch (IndexOutOfRangeException)
-				{
-					tajmer.Enabled = false;
-					MessageBox.Show("Izasao si van table");
-				}
-			}
-			else
-			{
-				this.Dispatcher.Invoke(() =>
-				{
-					engine.odrediSledecePolje();
-				});
-
-			}
-
-			/*this.Dispatcher.Invoke(() =>
-			{
-				if (daLiJede)
-				{
-					this.Dispatcher.Invoke(() =>
-					{
-						engine.povecajZmiju();
-					});
-				}
-			});
-			}
-
-				/*if (tajmer != null)
-				{
-					tajmer.Stop();
-					tajmer.Dispose();
-				}*/
 		}
 		private void Nivo1Button_Click(object sender, RoutedEventArgs e)
 		{
@@ -168,14 +116,15 @@ namespace Seminarski_rad
             {
                 if (interval == 0)
                 {
-                    throw new LevelNotSelectedException();
+                    throw new OptionNotSelectedException();
                 }
 
                 if (brojcanik == 1)
                 {
 					SetTimer(interval);
 					engine.PokreniEngine();
-                    brojcanik++;
+					Engine.stanjeZmije = 0;
+					brojcanik++;
                 }
 				tajmer.Enabled = true;
                 if (tajmer.Enabled)
@@ -184,15 +133,10 @@ namespace Seminarski_rad
 					tajmer.Enabled = true;
 				}
             }
-            catch (LevelNotSelectedException)
+            catch (OptionNotSelectedException)
             {
                 MessageBox.Show("Nisi odabrao nivo!");
             }
-            catch (ChangeLevelWhileIngameException)
-            {
-                MessageBox.Show("Ne moze se menjati nivo dok je igra u toku");
-            }
-            
 			
 		}
 
@@ -238,12 +182,12 @@ namespace Seminarski_rad
 			{
 				if (raditajmer == true)
 				{
-					throw new ChangeLevelWhileIngameException();
+					throw new AlreadyIngameException();
 				}
 				promeniBojuNivoButtona(b);
 				interval = vreme;
 			}
-			catch (ChangeLevelWhileIngameException)
+			catch (AlreadyIngameException)
 			{
 				tajmer.Enabled = false;
 				startButton.Content = "RESUME";
@@ -256,15 +200,46 @@ namespace Seminarski_rad
 			{
 				if (raditajmer == false)
 				{
-					throw new PausedWhileNotIngameException();
+					throw new NotIngameException();
 				}
 				tajmer.Enabled = false;
 				startButton.Content = "RESUME";
 			}
-			catch (PausedWhileNotIngameException)
+			catch (NotIngameException)
 			{
 				MessageBox.Show("Ne mozes pauzirati igru dok je ne pokrenes!");
 			}
-		}	
+		}
+
+		private void modeButton_Click(object sender, RoutedEventArgs e)
+		{
+
+			try
+			{
+				if (raditajmer == true)
+				{
+					throw new AlreadyIngameException();
+				}
+				if (Engine.walls)
+				{
+					Engine.walls = false;
+					modeButton.Content = "Mode: No Walls";
+				}
+				else
+				{
+					Engine.walls = true;
+					modeButton.Content = "Mode: Walls";
+				}
+			}
+			catch (AlreadyIngameException)
+			{
+				tajmer.Enabled = false;
+				startButton.Content = "RESUME";
+				MessageBox.Show("Ne mozes menjati mod igre dok si u igri");
+			}
+
+
+
+		}
 	}
 }

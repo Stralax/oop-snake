@@ -5,16 +5,20 @@ using System.Text;
 
 namespace Seminarski_rad
 {
-    class LevelNotSelectedException : Exception
+    class OptionNotSelectedException : Exception
     {
 
     }
-    class ChangeLevelWhileIngameException : Exception
+    class AlreadyIngameException : Exception
     {
 		
     }
-    class PausedWhileNotIngameException : Exception
+    class NotIngameException : Exception
     {
 
     }
+    class InvalidMoveException : Exception
+    { 
+    }
+
 }

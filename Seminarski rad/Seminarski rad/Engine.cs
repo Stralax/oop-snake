@@ -18,7 +18,7 @@ namespace Seminarski_rad
 		Random rnd = new Random();
 		public static int stanjeZmije = 0;
 		public static bool daLiJede = false;
-		public bool walls = false;
+		public static bool walls = true;
 		public Engine()
 		{
 
@@ -86,7 +86,7 @@ namespace Seminarski_rad
 				{
 					if (sledecePolje.x == 0)
 					{
-						sledecePolje.x = 15;
+						sledecePolje.x = sledecePolje.x + 14;
 						sledecePolje.y = Engine.yZmije;
 					}
 					else
@@ -108,7 +108,7 @@ namespace Seminarski_rad
 					if (sledecePolje.y == 0)
 					{
 						sledecePolje.x = Engine.xZmije;
-						sledecePolje.y = 15;
+						sledecePolje.y = sledecePolje.y + 14;
 					}
 
 					else
@@ -127,10 +127,11 @@ namespace Seminarski_rad
 				}
 				else
 				{
-						if (sledecePolje.x == 15)
+						if (sledecePolje.x == 14)
 						{
-							sledecePolje.x = 0;
+							sledecePolje.x = sledecePolje.x - 14;
 							sledecePolje.y = Engine.yZmije;
+
 						}
 						else
 						{
@@ -148,10 +149,10 @@ namespace Seminarski_rad
 				}
 				else
 				{
-					if (sledecePolje.y == 15)
+					if (sledecePolje.y == 14)
 					{
 						sledecePolje.x = Engine.xZmije;
-						sledecePolje.y = 0;
+						sledecePolje.y = sledecePolje.y - 14;
 					}
 					else
 					{
@@ -160,6 +161,7 @@ namespace Seminarski_rad
 					}
 				}
 			}
+
 		}
 		public void daLiZmijaJede()
 		{
@@ -208,6 +210,10 @@ namespace Seminarski_rad
 					{
 						throw new IndexOutOfRangeException();
 					}
+					if (MainWindow.Polja[sledecePolje.x, sledecePolje.y].Background == Brushes.Blue)
+					{
+						throw new InvalidMoveException();
+					}
 					spawnujHranu();
 					daLiZmijaJede();
 					pomeriZmiju();
@@ -215,7 +221,14 @@ namespace Seminarski_rad
 				catch (IndexOutOfRangeException)
 				{
 					MainWindow.tajmer.Enabled = false;
-					MessageBox.Show("Izasao si van table");
+					MessageBox.Show("Izasao si van table, pokusaj ponovo");
+					ResetGame();
+				}
+				catch (InvalidMoveException)
+				{
+					MainWindow.tajmer.Enabled = false;
+					MessageBox.Show("Ujeo si se za rep, pokusaj ponovo");
+					ResetGame();
 				}
 			}
 			else
@@ -224,6 +237,33 @@ namespace Seminarski_rad
 				daLiZmijaJede();
 				pomeriZmiju();
 			}
+		}
+		public void ResetGame()
+		{
+			foreach (var l in MainWindow.ListaPolja)
+			{
+				l.Background = Brushes.White;
+			}
+			DuzinaZmije = 2;
+			MainWindow.interval = 0;
+			foreach (var b in MainWindow.nivoButtoni)
+			{
+				b.Background = Brushes.White;
+			}
+			MainWindow.raditajmer = false;
+			MainWindow.brojcanik = 1;
+			xZmije = 6;
+			yZmije = 6;
+			for (int i = 0; i < 15; i++)
+			{
+				for (int j = 0; j < 15; j++)
+				{
+					MainWindow.pomocnaMatrica[i, j] = 1000;
+				}
+			}
+			sledecePolje.x = 0;
+			sledecePolje.y = 0;
+			hrana = false;
 		}
 
 	}
