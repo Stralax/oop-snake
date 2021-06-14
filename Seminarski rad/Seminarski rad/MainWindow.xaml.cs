@@ -31,7 +31,7 @@ namespace Seminarski_rad
 		static Engine engine = new Engine();
 		public static int stanjeZmije;
 		public static bool daLiJede = false;
-		static (int, int) sledecePolje = (0, 0);
+		
 		public bool raditajmer=false;
 		public int brojcanik=1;
 		public static List<Button> nivoButtoni = new List<Button>();
@@ -196,28 +196,28 @@ namespace Seminarski_rad
 		{
 			if (stanjeZmije == 1)
 			{
-				sledecePolje.Item1 = Engine.xZmije - 1;
-				sledecePolje.Item2 = Engine.yZmije;
+				sledecePolje.x = Engine.xZmije - 1;
+				sledecePolje.y = Engine.yZmije;
 			}
 			if (stanjeZmije == 2)
 			{
-				sledecePolje.Item1 = Engine.xZmije;
-				sledecePolje.Item2 = Engine.yZmije - 1;
+				sledecePolje.x = Engine.xZmije;
+				sledecePolje.y = Engine.yZmije - 1;
 			}
 			if (stanjeZmije == 3)
 			{
-				sledecePolje.Item1 = Engine.xZmije + 1;
-				sledecePolje.Item2 = Engine.yZmije;
+				sledecePolje.x = Engine.xZmije + 1;
+				sledecePolje.y = Engine.yZmije;
 			}
 			if (stanjeZmije == 4)
 			{
-				sledecePolje.Item1 = Engine.xZmije;
-				sledecePolje.Item2 = Engine.yZmije + 1;
+				sledecePolje.x = Engine.xZmije;
+				sledecePolje.y = Engine.yZmije + 1;
 			}
 		}
 		public static void daLiZmijaJede()
 		{
-			if (Polja[sledecePolje.Item1, sledecePolje.Item2].Background == Brushes.Yellow)
+			if (Polja[sledecePolje.x, sledecePolje.y].Background == Brushes.Yellow)
 			{
 				daLiJede = true;
 			}
