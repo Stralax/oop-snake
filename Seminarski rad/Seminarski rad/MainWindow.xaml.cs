@@ -56,11 +56,12 @@ namespace Seminarski_rad
 
 				for (int j = 0; j < 15; j++)
 				{
-					pomocnaMatrica[i, j] = 1000;
+					pomocnaMatrica[i, j] = 10000;
 					Polja[i, j] = ListaPolja[brojac];
 					brojac++;
 				}
 			}
+			postaviFont();
 		}
 
 		private void IKeyDown(object sender, KeyEventArgs e)
@@ -111,7 +112,6 @@ namespace Seminarski_rad
 
 		private void StartButton_Click(object sender, RoutedEventArgs e)
 		{
-			postaviFont();
 			try
             {
                 if (interval == 0)

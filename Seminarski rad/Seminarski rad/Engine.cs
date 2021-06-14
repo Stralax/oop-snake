@@ -37,7 +37,6 @@ namespace Seminarski_rad
 			obojiPolje(6, 4, Brushes.Blue);
 			obojiPolje(6, 5, Brushes.Blue);
 			obojiPolje(6, 6, Brushes.Red);
-
 			//MainWindow.Polja[6, 6].Content = "=>";
 		}
 
@@ -61,15 +60,13 @@ namespace Seminarski_rad
 			}
 			if (daLiJede) //ukoliko zmija treba da poraste, polje nece biti obrisano
 			{
-				MainWindow.Polja[xpomocni, ypomocni].Background = Brushes.Blue;
 				DuzinaZmije++;
-				MainWindow.pomocnaMatrica[xpomocni, ypomocni] = min - 1;
 				hrana = false;
 			}
 			else //ukoliko zmija ne treba da poraste, brise se poslednje polje zmije
 			{
 				MainWindow.Polja[xpomocni, ypomocni].Background = Brushes.White;
-				MainWindow.pomocnaMatrica[xpomocni, ypomocni] = 1000;
+				MainWindow.pomocnaMatrica[xpomocni, ypomocni] = 10000;
 			}
 		}
 
@@ -273,7 +270,7 @@ namespace Seminarski_rad
 			{
 				for (int j = 0; j < 15; j++)
 				{
-					MainWindow.pomocnaMatrica[i, j] = 1000;
+					MainWindow.pomocnaMatrica[i, j] = 10000;
 				}
 			}
 			sledecePolje.x = 0;
