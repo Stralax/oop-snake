@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace Seminarski_rad
@@ -15,6 +16,9 @@ namespace Seminarski_rad
 		static int brojac = 0;
 		static bool hrana = false;
 		Random rnd = new Random();
+		public static int stanjeZmije = 0;
+		public static bool daLiJede = false;
+		public bool walls = false;
 		public Engine()
 		{
 
@@ -37,29 +41,6 @@ namespace Seminarski_rad
 			//MainWindow.Polja[6, 6].Content = "=>";
 		}
 
-		/*public void povecajZmiju() TRENUTNO SUVISNA FUNKCIJA, obrisiPolje() SE BAVI I RASTOM ZMIJE
-		{
-			int min = 500;
-			int xpomocni = 0;
-			int ypomocni = 0;
-			for (int i = 0; i < 15; i++)
-			{
-				for (int j = 0; j < 15; j++)
-				{
-					if (MainWindow.pomocnaMatrica[i, j] < min)
-					{
-						min = MainWindow.pomocnaMatrica[i, j];
-						xpomocni = i;
-						ypomocni = j;
-					}
-				}
-			}
-
-			MainWindow.Polja[xpomocni, ypomocni].Background = Brushes.Blue;
-			DuzinaZmije++;
-			MainWindow.pomocnaMatrica[xpomocni, ypomocni] = min - 1;
-		}
-		*/
 		public void obrisiPolje()
 		{
 
@@ -78,7 +59,7 @@ namespace Seminarski_rad
 					}
 				}
 			}
-			if (MainWindow.daLiJede) //ukoliko zmija treba da poraste, polje nece biti obrisano
+			if (daLiJede) //ukoliko zmija treba da poraste, polje nece biti obrisano
 			{
 				MainWindow.Polja[xpomocni, ypomocni].Background = Brushes.Blue;
 				DuzinaZmije++;
@@ -92,36 +73,116 @@ namespace Seminarski_rad
 			}
 		}
 
+		public void odrediSledecePolje()
+		{
+			if (stanjeZmije == 1)
+			{
+				if (walls)
+				{
+					sledecePolje.x = Engine.xZmije - 1;
+					sledecePolje.y = Engine.yZmije;
+				}
+				else
+				{
+					if (sledecePolje.x == 0)
+					{
+						sledecePolje.x = 15;
+						sledecePolje.y = Engine.yZmije;
+					}
+					else
+					{
+						sledecePolje.x = Engine.xZmije - 1;
+						sledecePolje.y = Engine.yZmije;
+					}
+				}
+			}
+			if (stanjeZmije == 2)
+			{
+				if (walls)
+				{
+					sledecePolje.x = Engine.xZmije;
+					sledecePolje.y = Engine.yZmije - 1;
+				}
+				else
+				{
+					if (sledecePolje.y == 0)
+					{
+						sledecePolje.x = Engine.xZmije;
+						sledecePolje.y = 15;
+					}
+
+					else
+					{
+						sledecePolje.x = Engine.xZmije;
+						sledecePolje.y = Engine.yZmije - 1;
+					}
+				}
+			}
+			if (stanjeZmije == 3)
+			{
+				if (walls)
+				{
+					sledecePolje.x = Engine.xZmije + 1;
+					sledecePolje.y = Engine.yZmije;
+				}
+				else
+				{
+						if (sledecePolje.x == 15)
+						{
+							sledecePolje.x = 0;
+							sledecePolje.y = Engine.yZmije;
+						}
+						else
+						{
+							sledecePolje.x = Engine.xZmije + 1;
+							sledecePolje.y = Engine.yZmije;
+						}
+				}
+			}
+			if (stanjeZmije == 4)
+			{
+				if (walls)
+				{
+					sledecePolje.x = Engine.xZmije;
+					sledecePolje.y = Engine.yZmije + 1;
+				}
+				else
+				{
+					if (sledecePolje.y == 15)
+					{
+						sledecePolje.x = Engine.xZmije;
+						sledecePolje.y = 0;
+					}
+					else
+					{
+						sledecePolje.x = Engine.xZmije;
+						sledecePolje.y = Engine.yZmije + 1;
+					}
+				}
+			}
+		}
+		public void daLiZmijaJede()
+		{
+			if (MainWindow.Polja[sledecePolje.x, sledecePolje.y].Background == Brushes.Yellow)
+			{
+				daLiJede = true;
+			}
+			else
+				daLiJede = false;
+		}
+
+
 		public void pomeriZmiju()
 		{
-			if (MainWindow.stanjeZmije == 1)
+			if (stanjeZmije !=0)
 			{
-				xZmije -= 1;
+				MainWindow.Polja[xZmije, yZmije].Background = Brushes.Blue;
+				xZmije = sledecePolje.x;
+				yZmije = sledecePolje.y;
 				obojiPolje(xZmije, yZmije, Brushes.Red);
-				MainWindow.Polja[xZmije + 1, yZmije].Background = Brushes.Blue;
 				obrisiPolje();
 			}
-			if (MainWindow.stanjeZmije == 2)
-			{
-				yZmije -= 1;
-				obojiPolje(xZmije, yZmije, Brushes.Red);
-				MainWindow.Polja[xZmije, yZmije + 1].Background = Brushes.Blue;
-				obrisiPolje();
-			}
-			if (MainWindow.stanjeZmije == 3)
-			{
-				xZmije += 1;
-				obojiPolje(xZmije, yZmije, Brushes.Red);
-				MainWindow.Polja[xZmije - 1, yZmije].Background = Brushes.Blue;
-				obrisiPolje();
-			}
-			if (MainWindow.stanjeZmije == 4)
-			{
-				yZmije += 1;
-				obojiPolje(xZmije, yZmije, Brushes.Red);
-				MainWindow.Polja[xZmije, yZmije - 1].Background = Brushes.Blue;
-				obrisiPolje();
-			}
+
 		}
 		public void spawnujHranu()
 		{
@@ -134,6 +195,34 @@ namespace Seminarski_rad
 					MainWindow.Polja[x, y].Background = Brushes.Yellow;
 					hrana = true;
 				}
+			}
+		}
+		public void UpdateGame()
+		{
+			odrediSledecePolje();
+			if (walls)
+			{
+				try
+				{
+					if ((sledecePolje.x >= 15) || (sledecePolje.y >= 15) || (sledecePolje.x < 0) || (sledecePolje.y < 0))
+					{
+						throw new IndexOutOfRangeException();
+					}
+					spawnujHranu();
+					daLiZmijaJede();
+					pomeriZmiju();
+				}
+				catch (IndexOutOfRangeException)
+				{
+					MainWindow.tajmer.Enabled = false;
+					MessageBox.Show("Izasao si van table");
+				}
+			}
+			else
+			{
+				spawnujHranu();
+				daLiZmijaJede();
+				pomeriZmiju();
 			}
 		}
 

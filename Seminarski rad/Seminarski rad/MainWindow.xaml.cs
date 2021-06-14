@@ -24,13 +24,11 @@ namespace Seminarski_rad
 
 	public partial class MainWindow : Window
 	{
-		private static Timer tajmer;
+		public static Timer tajmer;
 		public static List<Label> ListaPolja = new List<Label>();
 		public static Label[,] Polja = new Label[15, 15];
 		public static int[,] pomocnaMatrica = new int[15, 15];
 		static Engine engine = new Engine();
-		public static int stanjeZmije;
-		public static bool daLiJede = false;
 		public bool raditajmer=false;
 		public int brojcanik=1;
 		public static List<Button> nivoButtoni = new List<Button>();
@@ -39,6 +37,8 @@ namespace Seminarski_rad
 		public MainWindow()
 		{
 			InitializeComponent();
+			sledecePolje.x = 6;
+			sledecePolje.y = 6;
 			this.KeyDown += new KeyEventHandler(IKeyDown);
 			nivoButtoni.Add(nivo1Button);
 			nivoButtoni.Add(nivo2Button);
@@ -68,13 +68,13 @@ namespace Seminarski_rad
 		private void IKeyDown(object sender, KeyEventArgs e)
 		{
 			if ((e.Key == Key.W) || (e.Key == Key.Up))
-				stanjeZmije = 1;
+				Engine.stanjeZmije = 1;
 			if ((e.Key == Key.A) || (e.Key == Key.Left))
-				stanjeZmije = 2;
+				Engine.stanjeZmije = 2;
 			if ((e.Key == Key.S) || (e.Key == Key.Down))
-				stanjeZmije = 3;
+				Engine.stanjeZmije = 3;
 			if ((e.Key == Key.D) || (e.Key == Key.Right))
-				stanjeZmije = 4;
+				Engine.stanjeZmije = 4;
 
 		}
 
@@ -92,28 +92,39 @@ namespace Seminarski_rad
 		{
 			this.Dispatcher.Invoke(() =>
 			{
-				odrediSledecePolje();
+				engine.UpdateGame();
 			});
-			try
+			/*if (walls)
 			{
-				if ((sledecePolje.x >= 15) || (sledecePolje.y >= 15))
+				try
 				{
-					throw new IndexOutOfRangeException();
-				}
-				else
-				{
-					this.Dispatcher.Invoke(() =>
+					if ((sledecePolje.x >= 15) || (sledecePolje.y >= 15) || (sledecePolje.x < 0) || (sledecePolje.y < 0))
 					{
-						engine.spawnujHranu();
-						daLiZmijaJede();
-						engine.pomeriZmiju();
-					});
+						throw new IndexOutOfRangeException();
+					}
+					else
+					{
+						this.Dispatcher.Invoke(() =>
+						{
+							engine.spawnujHranu();
+							engine.daLiZmijaJede();
+							engine.pomeriZmiju();
+						});
+					}
+				}
+				catch (IndexOutOfRangeException)
+				{
+					tajmer.Enabled = false;
+					MessageBox.Show("Izasao si van table");
 				}
 			}
-			catch (IndexOutOfRangeException)
+			else
 			{
-				tajmer.Enabled = false;
-				MessageBox.Show("Izasao si van table");
+				this.Dispatcher.Invoke(() =>
+				{
+					engine.odrediSledecePolje();
+				});
+
 			}
 
 			/*this.Dispatcher.Invoke(() =>
@@ -209,38 +220,6 @@ namespace Seminarski_rad
 			{
 				l.FontSize = 30;
 			}
-		}
-		private void odrediSledecePolje()
-		{
-			if (stanjeZmije == 1)
-			{
-				sledecePolje.x = Engine.xZmije - 1;
-				sledecePolje.y = Engine.yZmije;
-			}
-			if (stanjeZmije == 2)
-			{
-				sledecePolje.x = Engine.xZmije;
-				sledecePolje.y = Engine.yZmije - 1;
-			}
-			if (stanjeZmije == 3)
-			{
-				sledecePolje.x = Engine.xZmije + 1;
-				sledecePolje.y = Engine.yZmije;
-			}
-			if (stanjeZmije == 4)
-			{
-				sledecePolje.x = Engine.xZmije;
-				sledecePolje.y = Engine.yZmije + 1;
-			}
-		}
-		public static void daLiZmijaJede()
-		{
-			if (Polja[sledecePolje.x, sledecePolje.y].Background == Brushes.Yellow)
-			{
-				daLiJede = true;
-			}
-			else
-				daLiJede = false;
 		}
 
 		public void promeniBojuNivoButtona(Button b)
