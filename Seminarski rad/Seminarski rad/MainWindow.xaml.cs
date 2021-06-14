@@ -144,10 +144,11 @@ namespace Seminarski_rad
                 {
                     throw new LevelNotSelectedException();
                 }
-                SetTimer(interval);
+
                 if (brojcanik == 1)
                 {
-                    engine.PokreniEngine();
+					SetTimer(interval);
+					engine.PokreniEngine();
                     brojcanik++;
                 }
                 if (tajmer.Enabled)
