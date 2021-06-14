@@ -233,9 +233,24 @@ namespace Seminarski_rad
 			}
 			else
 			{
-				spawnujHranu();
-				daLiZmijaJede();
-				pomeriZmiju();
+				try
+				{
+					if (MainWindow.Polja[sledecePolje.x, sledecePolje.y].Background == Brushes.Blue)
+					{
+						throw new InvalidMoveException();
+					}
+					spawnujHranu();
+					daLiZmijaJede();
+					pomeriZmiju();
+				}
+				catch (InvalidMoveException)
+				{
+					{
+						MainWindow.tajmer.Enabled = false;
+						MessageBox.Show("Ujeo si se za rep, pokusaj ponovo");
+						ResetGame();
+					}
+				}
 			}
 		}
 		public void ResetGame()
