@@ -80,7 +80,7 @@ namespace Seminarski_rad
 					brojac++;
 				}
 			}
-			postaviFont();
+			PostaviFont();
 			gameOverLabel.HorizontalContentAlignment = HorizontalAlignment.Center;
 		}
 
@@ -137,18 +137,18 @@ namespace Seminarski_rad
 		}
 		private void Nivo1Button_Click(object sender, RoutedEventArgs e)
 		{
-			pokusajPromenitiNivo(nivo1Button, 250);
+			PokusajPromenitiNivo(nivo1Button, 250);
 
 		}
 
 		private void Nivo2Button_Click(object sender, RoutedEventArgs e)
 		{
-			pokusajPromenitiNivo(nivo2Button, 175);
+			PokusajPromenitiNivo(nivo2Button, 175);
 		}
 
 		private void Nivo3Button_Click(object sender, RoutedEventArgs e)
 		{
-			pokusajPromenitiNivo(nivo3Button, 100);
+			PokusajPromenitiNivo(nivo3Button, 100);
 		}
 
 		private void StartButton_Click(object sender, RoutedEventArgs e)
@@ -181,7 +181,7 @@ namespace Seminarski_rad
 
 		}
 
-		private void postaviFont()
+		private void PostaviFont()
 		{
 			foreach (Label l in ListaPolja)
 			{
@@ -190,7 +190,7 @@ namespace Seminarski_rad
 			}
 		}
 
-		public void promeniBojuNivoButtona(Button b)
+		public void PromeniBojuNivoButtona(Button b)
 		{
 			foreach (Button dugme in nivoButtoni)
 			{
@@ -209,7 +209,7 @@ namespace Seminarski_rad
 				}
 			}
 		}
-		public void pokusajPromenitiNivo(Button b, int vreme)
+		public void PokusajPromenitiNivo(Button b, int vreme)
 		{
 			try
 			{
@@ -217,7 +217,7 @@ namespace Seminarski_rad
 				{
 					throw new AlreadyIngameException();
 				}
-				promeniBojuNivoButtona(b);
+				PromeniBojuNivoButtona(b);
 				interval = vreme;
 			}
 			catch (AlreadyIngameException)
