@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Seminarski_rad"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800">
+        Title="MainWindow" Height="840" Width="830">
     <Grid x:Name="Grid1" Background="LightGreen">
         <Label x:Name="Polje000" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" />
         <Label x:Name="Polje001" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="45,0,0,0"/>
@@ -243,14 +243,14 @@
         <Label x:Name="Polje1412" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="540,630,0,0"/>
         <Label x:Name="Polje1413" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="585,630,0,0"/>
         <Label x:Name="Polje1414" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Height="45" Width="45" Margin="630,630,0,0"/>
-        <Button x:Name="nivo1Button" Content="Nivo 1" Width="120" Height="52" FontSize="30" Click="Nivo1Button_Click" Background="White" Margin="60,700,612,17"/>
-        <Button x:Name="nivo2Button" Content="Nivo 2" Width="120" Height="52" FontSize="30" Click="Nivo2Button_Click" Background="White" Margin="270,700,402,17"/>
-        <Button x:Name="nivo3Button" Content="Nivo 3" Width="120" Height="52" FontSize="30" Click="Nivo3Button_Click" Background="White" Margin="465,700,207,17"/>
-        <Button x:Name="startButton" Content="START" Width="168" Height="81" FontSize="45" Click="StartButton_Click" Margin="614,680,10,8"/>
-        <Button x:Name="lightThemeButton" Content="Light Theme" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="691,405,0,0" Height="60" Click="lightThemeButton_Click"/>
-        <Button x:Name="darkThemeButton" Content="Dark Theme" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="691,106,0,0" Height="60" Click="darkThemeButton_Click"/>
-        <Button Content="Pause" Height="23" HorizontalAlignment="Left" Margin="691,630,0,0" x:Name="PauseButton" VerticalAlignment="Top" Width="75" Click="pauseButton_Click" />
-        <Button x:Name="modeButton" Content="Mode: Walls" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="691,59,0,0" Click="modeButton_Click"/>
+        <Button x:Name="nivo1Button" Content="Nivo 1" Width="120" Height="52" FontSize="25" Click="Nivo1Button_Click" Background="White" Margin="689,187,13,570" FontFamily="Unispace"/>
+        <Button x:Name="nivo2Button" Content="Nivo 2" Width="120" Height="52" FontSize="25" Click="Nivo2Button_Click" Background="White" Margin="689,308,13,449" FontFamily="Unispace"/>
+        <Button x:Name="nivo3Button" Content="Nivo 3" Width="120" Height="52" FontSize="25" Click="Nivo3Button_Click" Background="White" Margin="689,426,13,331" FontFamily="Unispace"/>
+        <Button x:Name="startButton" Content="START" FontSize="45" Click="StartButton_Click" Background="White" Margin="257,708,385,13" FontFamily="Unispace"/>
+        <Button x:Name="ThemeButton" Content="Theme: Light" HorizontalAlignment="Left" VerticalAlignment="Top" Width="199" Background="White" Margin="476,711,0,0" Height="73" Click="ThemeButton_Click" FontSize="22" FontFamily="Unispace" />
+        <Button Content="Pause" Height="75" HorizontalAlignment="Left" Margin="684,600,0,0" x:Name="PauseButton" Background="White" VerticalAlignment="Top" Width="125" Click="pauseButton_Click" FontFamily="Unispace" FontSize="30" />
+        <Button x:Name="modeButton" Content="Mode: Walls" HorizontalAlignment="Left" VerticalAlignment="Top" Width="199" Background="White" Margin="10,712,0,0" Click="modeButton_Click" Height="72" FontFamily="Unispace" FontSize="22"/>
+        <Label x:Name="gameOverLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,264,0,0" Height="136" Width="675" FontSize="100" FontFamily="Unispace"/>
     </Grid>
 </Window>
 

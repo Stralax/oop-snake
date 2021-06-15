@@ -25,13 +25,21 @@ namespace Seminarski_rad
 	public partial class MainWindow : Window
 	{
 		public static Timer tajmer;
+		private static bool tajmerPostoji = false;
 		public static List<Label> ListaPolja = new List<Label>();
 		public static Label[,] Polja = new Label[15, 15];
 		public static int[,] pomocnaMatrica = new int[15, 15];
 		static Engine engine = new Engine();
-		public static bool raditajmer=false;
-		public static int brojcanik=1;
+		public static bool raditajmer = false;
+		public static int brojcanik = 1;
 		public static List<Button> nivoButtoni = new List<Button>();
+		public static bool darkTheme = false;
+		public static int nivoButtonOdabran = 0;
+		//sledece tri liste su potrebne za staticku funkciju
+		private static List<Grid> gridLista= new List<Grid>();
+		private static List<Button> ThemeButtonLista = new List<Button>();
+		public static List<Label> gameOverLabelLista = new List<Label>();
+
 
 
 		public MainWindow()
@@ -41,6 +49,17 @@ namespace Seminarski_rad
 			nivoButtoni.Add(nivo1Button);
 			nivoButtoni.Add(nivo2Button);
 			nivoButtoni.Add(nivo3Button);
+			gridLista.Add(Grid1);
+			ThemeButtonLista.Add(ThemeButton);
+			gameOverLabelLista.Add(gameOverLabel);
+			foreach (var v in Grid1.Children)
+			{
+				if (v is Button)
+				{
+					Button pomocni = (Button)v;
+					pomocni.Background = new SolidColorBrush(Color.FromRgb(224, 224, 224));
+				}
+			}
 			foreach (var v in Grid1.Children)
 				if (ListaPolja.Count < 225)
 					if (v is Label)
@@ -56,26 +75,46 @@ namespace Seminarski_rad
 
 				for (int j = 0; j < 15; j++)
 				{
-					pomocnaMatrica[i, j] = 10000;
+					pomocnaMatrica[i, j] = Int32.MaxValue;
 					Polja[i, j] = ListaPolja[brojac];
 					brojac++;
 				}
 			}
 			postaviFont();
+			gameOverLabel.HorizontalContentAlignment = HorizontalAlignment.Center;
 		}
 
 		private void IKeyDown(object sender, KeyEventArgs e)
 		{
-			if ((e.Key == Key.W) || (e.Key == Key.Up))
-				Engine.stanjeZmije = 1;
-			if ((e.Key == Key.A) || (e.Key == Key.Left))
-				Engine.stanjeZmije = 2;
-			if ((e.Key == Key.S) || (e.Key == Key.Down))
-				Engine.stanjeZmije = 3;
-			if ((e.Key == Key.D) || (e.Key == Key.Right))
-				Engine.stanjeZmije = 4;
-
+			if (tajmerPostoji)
+			{
+				if (tajmer.Enabled)
+				{
+					if ((e.Key == Key.W) || (e.Key == Key.Up))
+						Engine.stanjeZmije = 1;
+					if ((e.Key == Key.A) || (e.Key == Key.Left))
+						Engine.stanjeZmije = 2;
+					if ((e.Key == Key.S) || (e.Key == Key.Down))
+						Engine.stanjeZmije = 3;
+					if ((e.Key == Key.D) || (e.Key == Key.Right))
+						Engine.stanjeZmije = 4;
+				}
+				if (e.Key == Key.P)
+				{
+					if (tajmer.Enabled)
+					{
+						tajmer.Enabled = false;
+						startButton.Content = "RESUME";
+					}
+					else
+					{
+						tajmer.Enabled = true;
+						startButton.Content = "START";
+					}
+				}
+			}
 		}
+
 
 		public static int interval;
 
@@ -86,78 +125,62 @@ namespace Seminarski_rad
 			tajmer.AutoReset = true;
 			tajmer.Enabled = true;
 			raditajmer = true;
+			tajmerPostoji = true;
 		}
 		private void OnTimerElapsed(object sender, ElapsedEventArgs e)
 		{
 			this.Dispatcher.Invoke(() =>
 			{
-				engine.UpdateGame();
+				engine.AzurirajIgru();
+				Polje000.Content = Engine.DuzinaZmije;
 			});
 		}
 		private void Nivo1Button_Click(object sender, RoutedEventArgs e)
 		{
-			pokusajPromenitiNivo(nivo1Button, 1000);
+			pokusajPromenitiNivo(nivo1Button, 250);
 
 		}
 
 		private void Nivo2Button_Click(object sender, RoutedEventArgs e)
 		{
-			pokusajPromenitiNivo(nivo2Button, 500);
+			pokusajPromenitiNivo(nivo2Button, 175);
 		}
 
 		private void Nivo3Button_Click(object sender, RoutedEventArgs e)
 		{
-			pokusajPromenitiNivo(nivo3Button, 300);
+			pokusajPromenitiNivo(nivo3Button, 100);
 		}
 
 		private void StartButton_Click(object sender, RoutedEventArgs e)
 		{
 			try
-            {
-                if (interval == 0)
-                {
-                    throw new OptionNotSelectedException();
-                }
+			{
+				if (interval == 0)
+				{
+					throw new OptionNotSelectedException();
+				}
 
-                if (brojcanik == 1)
-                {
+				if (brojcanik == 1)
+				{
 					SetTimer(interval);
 					engine.PokreniEngine();
 					Engine.stanjeZmije = 0;
 					brojcanik++;
-                }
+				}
 				tajmer.Enabled = true;
-                if (tajmer.Enabled)
-                {
-                    startButton.Content = "START";
+				if (tajmer.Enabled)
+				{
+					startButton.Content = "START";
 					tajmer.Enabled = true;
 				}
-            }
-            catch (OptionNotSelectedException)
-            {
-                MessageBox.Show("Nisi odabrao nivo!");
-            }
-			
-		}
-
-		private void darkThemeButton_Click(object sender, RoutedEventArgs e)
-		{
-			foreach (Label l in ListaPolja)
-			{
-				l.Background = new SolidColorBrush(Color.FromRgb(32, 32, 32));
-				Grid1.Background = new SolidColorBrush(Color.FromRgb(0, 102, 51));
 			}
-		}
-
-		private void lightThemeButton_Click(object sender, RoutedEventArgs e)
-		{
-			foreach (Label l in ListaPolja)
+			catch (OptionNotSelectedException)
 			{
-				l.Background = Brushes.White;
-				Grid1.Background = Brushes.LightGreen;
+				MessageBox.Show("Nisi odabrao nivo!");
 			}
 
 		}
+
 		private void postaviFont()
 		{
 			foreach (Label l in ListaPolja)
@@ -171,9 +194,18 @@ namespace Seminarski_rad
 			foreach (Button dugme in nivoButtoni)
 			{
 				if (dugme == b)
+				{
 					dugme.Background = Brushes.Red;
+					nivoButtonOdabran = nivoButtoni.IndexOf(b) + 1;
+				}
 				else
-					dugme.Background = Brushes.White;
+				{
+					if (darkTheme)
+						dugme.Background = new SolidColorBrush(Color.FromRgb(128, 128, 128));
+					else
+						dugme.Background = new SolidColorBrush(Color.FromRgb(224, 224, 224));
+
+				}
 			}
 		}
 		public void pokusajPromenitiNivo(Button b, int vreme)
@@ -239,6 +271,95 @@ namespace Seminarski_rad
 			}
 
 
+
+		}
+
+		public static void OfarbajTablu()
+		{
+			if (darkTheme == false)
+			{
+				Polja[0,0].Foreground = Brushes.White;
+				darkTheme = true;
+				ThemeButtonLista[0].Content = "Theme: Dark";
+				foreach (Label l in ListaPolja)
+				{
+					l.Background = new SolidColorBrush(Color.FromRgb(32, 32, 32));
+
+				}
+				gridLista[0].Background = new SolidColorBrush(Color.FromRgb(64, 64, 64));
+				foreach (var b in gridLista[0].Children)
+				{
+					if (b is Button)
+					{
+						Button pomocni = (Button)b;
+						if (nivoButtonOdabran == 0)
+						{
+							pomocni.Background = new SolidColorBrush(Color.FromRgb(128, 128, 128));
+						}
+						else
+						{
+							if (nivoButtoni[nivoButtonOdabran - 1] == b)
+							{
+								pomocni.Background = Brushes.Red;
+							}
+							else
+							{
+								pomocni.Background = new SolidColorBrush(Color.FromRgb(128, 128, 128));
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				Polja[0,0].Foreground = Brushes.Black;
+				darkTheme = false;
+				ThemeButtonLista[0].Content = "Theme: Light";
+				foreach (Label l in ListaPolja)
+				{
+					l.Background = Brushes.White;
+				}
+				gridLista[0].Background = Brushes.LightGreen;
+				foreach (var b in gridLista[0].Children)
+				{
+					if (b is Button)
+					{
+						Button pomocni = (Button)b;
+						if (nivoButtonOdabran == 0)
+						{
+							pomocni.Background = new SolidColorBrush(Color.FromRgb(224, 224, 224));
+						}
+						else
+						{
+							if (nivoButtoni[nivoButtonOdabran - 1] == b)
+							{
+								pomocni.Background = Brushes.Red;
+							}
+							else
+							{
+								pomocni.Background = new SolidColorBrush(Color.FromRgb(224, 224, 224));
+							}
+						}
+					}
+				}
+			}
+		}
+
+		private void ThemeButton_Click(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				if (raditajmer == true)
+					throw new AlreadyIngameException();
+				OfarbajTablu();
+
+			}
+			catch (AlreadyIngameException)
+			{
+				tajmer.Enabled = false;
+				startButton.Content = "RESUME";
+				MessageBox.Show("Ne mozes menjati temu dok si u igri");
+			}
 
 		}
 	}

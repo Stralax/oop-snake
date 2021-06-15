@@ -4,13 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace Seminarski_rad
 {
 	public class Engine
 	{
-		static int DuzinaZmije = 2;
+		public static int DuzinaZmije = 2;
 		public static int xZmije = 6;
 		public static int yZmije = 6;
 		static int brojac = 0;
@@ -25,7 +32,7 @@ namespace Seminarski_rad
 
 		}
 
-		public void obojiPolje(int x, int y, Brush b)
+		public void ObojiPolje(int x, int y, Brush b)
 		{
 			MainWindow.Polja[x, y].Background = b;
 			brojac += 1;
@@ -34,16 +41,18 @@ namespace Seminarski_rad
 
 		public void PokreniEngine()
 		{
-			obojiPolje(6, 4, Brushes.Blue);
-			obojiPolje(6, 5, Brushes.Blue);
-			obojiPolje(6, 6, Brushes.Red);
-			//MainWindow.Polja[6, 6].Content = "=>";
-		}
+			ObojiPolje(6, 4, Brushes.Blue);
+			ObojiPolje(6, 5, Brushes.Blue);
+			ObojiPolje(6, 6, Brushes.Red);
+			SledecePolje.x = 5;
+			SledecePolje.y = 5;
 
-		public void obrisiPolje()
+		}
+		
+		public void ObrisiPolje()
 		{
 
-			int min = 500;
+			int min = Int32.MaxValue - 1;
 			int xpomocni = 0;
 			int ypomocni = 0;
 			for (int i = 0; i < 15; i++)
@@ -65,31 +74,39 @@ namespace Seminarski_rad
 			}
 			else //ukoliko zmija ne treba da poraste, brise se poslednje polje zmije
 			{
-				MainWindow.Polja[xpomocni, ypomocni].Background = Brushes.White;
-				MainWindow.pomocnaMatrica[xpomocni, ypomocni] = 10000;
+				if (MainWindow.darkTheme)
+				{
+					MainWindow.Polja[xpomocni, ypomocni].Background = new SolidColorBrush(Color.FromRgb(32, 32, 32));
+				}
+				else
+				{
+					MainWindow.Polja[xpomocni, ypomocni].Background = Brushes.White;
+				}
+
+				MainWindow.pomocnaMatrica[xpomocni, ypomocni] = Int32.MaxValue;
 			}
 		}
 
-		public void odrediSledecePolje()
+		public void OdrediSledecePolje()
 		{
 			if (stanjeZmije == 1)
 			{
 				if (walls)
 				{
-					sledecePolje.x = Engine.xZmije - 1;
-					sledecePolje.y = Engine.yZmije;
+					SledecePolje.x = Engine.xZmije - 1;
+					SledecePolje.y = Engine.yZmije;
 				}
 				else
 				{
-					if (sledecePolje.x == 0)
+					if (SledecePolje.x == 0)
 					{
-						sledecePolje.x = sledecePolje.x + 14;
-						sledecePolje.y = Engine.yZmije;
+						SledecePolje.x = SledecePolje.x + 14;
+						SledecePolje.y = Engine.yZmije;
 					}
 					else
 					{
-						sledecePolje.x = Engine.xZmije - 1;
-						sledecePolje.y = Engine.yZmije;
+						SledecePolje.x = Engine.xZmije - 1;
+						SledecePolje.y = Engine.yZmije;
 					}
 				}
 			}
@@ -97,21 +114,21 @@ namespace Seminarski_rad
 			{
 				if (walls)
 				{
-					sledecePolje.x = Engine.xZmije;
-					sledecePolje.y = Engine.yZmije - 1;
+					SledecePolje.x = Engine.xZmije;
+					SledecePolje.y = Engine.yZmije - 1;
 				}
 				else
 				{
-					if (sledecePolje.y == 0)
+					if (SledecePolje.y == 0)
 					{
-						sledecePolje.x = Engine.xZmije;
-						sledecePolje.y = sledecePolje.y + 14;
+						SledecePolje.x = Engine.xZmije;
+						SledecePolje.y = SledecePolje.y + 14;
 					}
 
 					else
 					{
-						sledecePolje.x = Engine.xZmije;
-						sledecePolje.y = Engine.yZmije - 1;
+						SledecePolje.x = Engine.xZmije;
+						SledecePolje.y = Engine.yZmije - 1;
 					}
 				}
 			}
@@ -119,21 +136,21 @@ namespace Seminarski_rad
 			{
 				if (walls)
 				{
-					sledecePolje.x = Engine.xZmije + 1;
-					sledecePolje.y = Engine.yZmije;
+					SledecePolje.x = Engine.xZmije + 1;
+					SledecePolje.y = Engine.yZmije;
 				}
 				else
 				{
-						if (sledecePolje.x == 14)
+						if (SledecePolje.x == 14)
 						{
-							sledecePolje.x = sledecePolje.x - 14;
-							sledecePolje.y = Engine.yZmije;
+							SledecePolje.x = SledecePolje.x - 14;
+							SledecePolje.y = Engine.yZmije;
 
 						}
 						else
 						{
-							sledecePolje.x = Engine.xZmije + 1;
-							sledecePolje.y = Engine.yZmije;
+							SledecePolje.x = Engine.xZmije + 1;
+							SledecePolje.y = Engine.yZmije;
 						}
 				}
 			}
@@ -141,28 +158,28 @@ namespace Seminarski_rad
 			{
 				if (walls)
 				{
-					sledecePolje.x = Engine.xZmije;
-					sledecePolje.y = Engine.yZmije + 1;
+					SledecePolje.x = Engine.xZmije;
+					SledecePolje.y = Engine.yZmije + 1;
 				}
 				else
 				{
-					if (sledecePolje.y == 14)
+					if (SledecePolje.y == 14)
 					{
-						sledecePolje.x = Engine.xZmije;
-						sledecePolje.y = sledecePolje.y - 14;
+						SledecePolje.x = Engine.xZmije;
+						SledecePolje.y = SledecePolje.y - 14;
 					}
 					else
 					{
-						sledecePolje.x = Engine.xZmije;
-						sledecePolje.y = Engine.yZmije + 1;
+						SledecePolje.x = Engine.xZmije;
+						SledecePolje.y = Engine.yZmije + 1;
 					}
 				}
 			}
 
 		}
-		public void daLiZmijaJede()
+		public void DaLiZmijaJede()
 		{
-			if (MainWindow.Polja[sledecePolje.x, sledecePolje.y].Background == Brushes.Yellow)
+			if (MainWindow.Polja[SledecePolje.x, SledecePolje.y].Background == Brushes.Yellow)
 			{
 				daLiJede = true;
 			}
@@ -171,19 +188,19 @@ namespace Seminarski_rad
 		}
 
 
-		public void pomeriZmiju()
+		public void PomeriZmiju()
 		{
 			if (stanjeZmije !=0)
 			{
 				MainWindow.Polja[xZmije, yZmije].Background = Brushes.Blue;
-				xZmije = sledecePolje.x;
-				yZmije = sledecePolje.y;
-				obojiPolje(xZmije, yZmije, Brushes.Red);
-				obrisiPolje();
+				xZmije = SledecePolje.x;
+				yZmije = SledecePolje.y;
+				ObojiPolje(xZmije, yZmije, Brushes.Red);
+				ObrisiPolje();
 			}
 
 		}
-		public void spawnujHranu()
+		public void StvoriHranu()
 		{
 			while (hrana == false)
 			{
@@ -196,72 +213,67 @@ namespace Seminarski_rad
 				}
 			}
 		}
-		public void UpdateGame()
+		public void AzurirajIgru()
 		{
-			odrediSledecePolje();
+			OdrediSledecePolje();
 			if (walls)
 			{
 				try
 				{
-					if ((sledecePolje.x >= 15) || (sledecePolje.y >= 15) || (sledecePolje.x < 0) || (sledecePolje.y < 0))
+					if ((SledecePolje.x >= 15) || (SledecePolje.y >= 15) || (SledecePolje.x < 0) || (SledecePolje.y < 0))
 					{
 						throw new IndexOutOfRangeException();
 					}
-					if (MainWindow.Polja[sledecePolje.x, sledecePolje.y].Background == Brushes.Blue)
+					if (MainWindow.Polja[SledecePolje.x, SledecePolje.y].Background == Brushes.Blue)
 					{
 						throw new InvalidMoveException();
 					}
-					spawnujHranu();
-					daLiZmijaJede();
-					pomeriZmiju();
+					StvoriHranu();
+					DaLiZmijaJede();
+					PomeriZmiju();
 				}
 				catch (IndexOutOfRangeException)
 				{
 					MainWindow.tajmer.Enabled = false;
+					MainWindow.gameOverLabelLista[0].Content = "GAME OVER";
 					MessageBox.Show("Izasao si van table, pokusaj ponovo");
-					ResetGame();
+					RestartujIgru();
 				}
 				catch (InvalidMoveException)
 				{
 					MainWindow.tajmer.Enabled = false;
+					MainWindow.gameOverLabelLista[0].Content = "GAME OVER";
 					MessageBox.Show("Ujeo si se za rep, pokusaj ponovo");
-					ResetGame();
+					RestartujIgru();
 				}
 			}
 			else
 			{
 				try
 				{
-					if (MainWindow.Polja[sledecePolje.x, sledecePolje.y].Background == Brushes.Blue)
+					if (MainWindow.Polja[SledecePolje.x, SledecePolje.y].Background == Brushes.Blue)
 					{
 						throw new InvalidMoveException();
 					}
-					spawnujHranu();
-					daLiZmijaJede();
-					pomeriZmiju();
+					StvoriHranu();
+					DaLiZmijaJede();
+					PomeriZmiju();
 				}
 				catch (InvalidMoveException)
 				{
 					{
 						MainWindow.tajmer.Enabled = false;
+						MainWindow.gameOverLabelLista[0].Content = "GAME OVER";
 						MessageBox.Show("Ujeo si se za rep, pokusaj ponovo");
-						ResetGame();
+						RestartujIgru();
 					}
 				}
 			}
 		}
-		public void ResetGame()
+		public void RestartujIgru()
 		{
-			foreach (var l in MainWindow.ListaPolja)
-			{
-				l.Background = Brushes.White;
-			}
 			DuzinaZmije = 2;
 			MainWindow.interval = 0;
-			foreach (var b in MainWindow.nivoButtoni)
-			{
-				b.Background = Brushes.White;
-			}
 			MainWindow.raditajmer = false;
 			MainWindow.brojcanik = 1;
 			xZmije = 6;
@@ -270,12 +282,24 @@ namespace Seminarski_rad
 			{
 				for (int j = 0; j < 15; j++)
 				{
-					MainWindow.pomocnaMatrica[i, j] = 10000;
+					MainWindow.pomocnaMatrica[i, j] = Int32.MaxValue;
 				}
 			}
-			sledecePolje.x = 0;
-			sledecePolje.y = 0;
+			SledecePolje.x = 0;
+			SledecePolje.y = 0;
 			hrana = false;
+			MainWindow.nivoButtonOdabran = 0;
+			if (MainWindow.darkTheme)
+			{
+				MainWindow.darkTheme = false;
+				MainWindow.OfarbajTablu();
+			}
+			if (!MainWindow.darkTheme)
+			{
+				MainWindow.darkTheme = true;
+				MainWindow.OfarbajTablu();
+			}
+			MainWindow.gameOverLabelLista[0].Content = "";
 		}
 
 	}
