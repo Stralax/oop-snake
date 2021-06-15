@@ -89,6 +89,7 @@ namespace Seminarski_rad
 
 		public void OdrediSledecePolje()
 		{
+			MainWindow.Polja[SledecePolje.x, SledecePolje.y].Content = "";
 			if (stanjeZmije == 1)
 			{
 				if (walls)
@@ -109,6 +110,8 @@ namespace Seminarski_rad
 						SledecePolje.y = Engine.yZmije;
 					}
 				}
+				if((SledecePolje.x >= 0) & (SledecePolje.x <= 14) & (SledecePolje.y >= 0) & (SledecePolje.y <= 14))
+					MainWindow.Polja[SledecePolje.x, SledecePolje.y].Content = "↑";
 			}
 			if (stanjeZmije == 2)
 			{
@@ -131,6 +134,8 @@ namespace Seminarski_rad
 						SledecePolje.y = Engine.yZmije - 1;
 					}
 				}
+				if ((SledecePolje.x >= 0) & (SledecePolje.x <= 14) & (SledecePolje.y >= 0) & (SledecePolje.y <= 14))
+					MainWindow.Polja[SledecePolje.x, SledecePolje.y].Content = "←";
 			}
 			if (stanjeZmije == 3)
 			{
@@ -153,6 +158,8 @@ namespace Seminarski_rad
 							SledecePolje.y = Engine.yZmije;
 						}
 				}
+				if ((SledecePolje.x >= 0) & (SledecePolje.x <= 14) & (SledecePolje.y >= 0) & (SledecePolje.y <= 14))
+					MainWindow.Polja[SledecePolje.x, SledecePolje.y].Content = "↓";
 			}
 			if (stanjeZmije == 4)
 			{
@@ -174,6 +181,8 @@ namespace Seminarski_rad
 						SledecePolje.y = Engine.yZmije + 1;
 					}
 				}
+				if ((SledecePolje.x >= 0) & (SledecePolje.x <= 14) & (SledecePolje.y >= 0) & (SledecePolje.y <= 14))
+					MainWindow.Polja[SledecePolje.x, SledecePolje.y].Content = "→";
 			}
 
 		}
@@ -300,6 +309,10 @@ namespace Seminarski_rad
 				MainWindow.OfarbajTablu();
 			}
 			MainWindow.gameOverLabelLista[0].Content = "";
+			foreach (Label l in MainWindow.ListaPolja)
+			{
+				l.Content = "";
+			}
 		}
 
 	}

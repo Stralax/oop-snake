@@ -185,7 +185,8 @@ namespace Seminarski_rad
 		{
 			foreach (Label l in ListaPolja)
 			{
-				l.FontSize = 30;
+				l.FontSize = 25;
+				l.HorizontalContentAlignment = HorizontalAlignment.Center;
 			}
 		}
 
